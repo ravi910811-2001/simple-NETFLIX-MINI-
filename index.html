@@ -1,0 +1,73 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Mini</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">NETFLIX</div>
+        <nav id="navbar">
+            <select id="genreSelect" onchange="filterByGenre()">
+                <option value="All">All Genres</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Drama">Drama</option>
+                <option value="Suspense">Suspense</option>
+                <option value="Animation">Animation</option>
+            </select>
+            <input type="text" id="searchInput" placeholder="Search movies..." oninput="searchMovies()">
+            <button class="mode-btn" onclick="toggleMode()">Toggle Mode</button>
+            <button class="login-btn" onclick="openLogin()" id="loginBtn">Login</button>
+            <div id="userProfile" style="display:none;">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                <span id="username">User</span>
+            </div>
+            <button class="hamburger" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h2>Welcome to Netflix</h2>
+            <p>Watch your favorite movies and shows.</p>
+            <button class="cta">Subscribe Now</button>
+        </section>
+        <section>
+            <h3 class="section-title">Popular on Netflix</h3>
+            <div class="movies-row" id="moviesRow"></div>
+        </section>
+        <section>
+            <h3 class="section-title">Favorites</h3>
+            <div class="movies-row" id="favoritesRow"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Netflix Clone. Educational Use Only.</p>
+    </footer>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLogin()">&times;</span>
+            <h2>Login</h2>
+            <form onsubmit="login(event)">
+                <input id="loginUsername" type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    <!-- Movie Details Modal -->
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeMovieModal()">&times;</span>
+            <h2 id="movieTitle"></h2>
+            <img id="movieImg" src="" alt="Movie Poster" style="width:100%;max-width:300px;">
+            <p id="movieDesc"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
